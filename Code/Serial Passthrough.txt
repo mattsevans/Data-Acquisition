@@ -1,0 +1,10 @@
+//started May 29, 2025
+//need to figure out if pins need to be assigned if using programmed MCU
+void setup {
+    serial.Begin(115200); //initializes serial communication
+}
+void loop {
+    if(serial.available()) {
+    	serial.write(serial.read());
+    }
+}

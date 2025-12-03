@@ -1,0 +1,20 @@
+//started May 22nd, 2025
+//Need
+//Constants
+
+//Pin Numbers
+const int txInd = ; //signals from BLE module
+
+const int led = ; //status LED
+void setup {
+    //inputs
+    pinMode(txInd, INPUT);
+    //outputs
+    pinMode(led, OUTPUT);
+}
+
+void loop {
+    //monitor bluetooth device 
+    //if searching fade blue in and out (pwm pin needed for this)
+    //if connected show solid blue
+}

@@ -1,0 +1,49 @@
+//started May 22nd, 2025
+//May 27, 2025 pseudocode finished 
+//Need pin numbers and values for Vref and battery readings
+//Constants
+const float vRef = ; //reference voltage
+const float rBits = 12.0; //ADC Resolution
+const float adcSteps = (1 << int(rBits)) - 1; //number of steps
+const float battFull = ; //reading for battery when full, at 50, at 20, and at 10 percent (battFull may not be needed)
+const float batt50 = ; 
+const float batt20 = ; 
+const float batt10 = ; 
+
+//Pin Numbers
+const int plugTF = ; //signal to show if battery is currently plugged in
+const int chargeLVL = A; //analog signal to read battery level
+const int ledR = ; //RGB channels of LED
+const int ledG = ; 
+const int ledB = ; 
+
+void setup {
+//pin definitions
+    //inputs
+    pinMode(chargeTF, INPUT);
+    //ouptuts
+    pinMode(ledR, OUTPUT);
+    pinMode(ledG, OUTPUT);
+    pinMode(ledB, OUTPUT);
+    Serial.begin(9600); //initialize serial communication
+}
+
+void loop {
+//check plugged status
+    //if plugged put device into "sleep" mode
+	//enter loop to "breathe" the LED with corresponding battery level color (if breathe not possible just use extra white LED to indicate charging)
+	  //utilize switch ... case
+	    //if battLVL > battFull LED is green and stop charging to prevent overcharge hazards
+	    //if battLVL > batt50 LED is green "breathe" pattern
+	    //if battLVL < batt50 and battLVL > batt20 LED is yellow "breathe" pattern
+	    //if battLVL < batt20 and battLVL > batt10 LED is red "breathe" pattern
+	//check plugged status
+    //if not plugged initialize power on
+	//enter loop to turn on LED and set LED behavior
+	  //utilize switch ... case
+	    //if battLVL > batt50 LED is solid green
+	    //if battLVL < batt50 and battLVL > batt20 LED is solid yellow
+	    //if battLVL < batt20 and battLVL > batt10 LED is solid red
+    	    //if battLVL < batt10 LED is blinking red
+	//check plugged status
+}

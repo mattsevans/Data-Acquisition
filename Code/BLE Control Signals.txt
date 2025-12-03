@@ -1,0 +1,40 @@
+//started May 27, 2025
+//Constants
+
+//Digital pins
+const int txCheck = ; //output from BLE module showing if transmitting
+const int vBat = ;
+const int P1_6 = ; //must be driven low during startup
+//const int RTS = ; //input from BLE module saying packet is ready to send (likely disabled)
+//const int CTS = ; //output to tell BLE module to send packet (likely disabled)
+const int P2_0 = ; //control pin for application (HIGH) and test (LOW) mode
+
+//Serial pins
+const int RxIn = ; //pin for received data from BLE module 
+const int RxOut = ; //pin to send data to DAC
+const int TxOut = ; //pin for sending data to BLE 
+const int TxIn = ; //pin for receiving data from ADC
+
+void setup {
+//assign input and output pins
+    //inputs
+    pinMode(RTS, INPUT);
+    pinMode(txCheck, INPUT);
+    //outputs
+    pinMode(CTS, OUTPUT);
+    pinMode(P1_6, OUTPUT);
+    pinMode(P2_0, OUTPUT);
+//set control signals to what they need to be with proper timings to initialize BLE module properly
+    digitalWrite(P2_0, HIGH); //places device into application mode
+    wait(68); //minimum of 68ms needed for device to boot and be able to receive instructions
+}
+
+void loop {
+    //begin searching for a device to pair to
+    //while paired begin transmission loop
+    	//perform data passthrough both to and from BLE module
+	//Data Path:
+	    //ADC-UART-MCU-BLE-MCU-UART-DAC
+	    //need to see if parallel passthrough possible, if not will need 2 slave MCUs to handle passthrough controlled by this MCU as master
+    //if pair breaks go back to searching for a device until paired
+}
